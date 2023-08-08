@@ -1,0 +1,556 @@
+{
+	"a2.1": {
+		"prefix": "a2.1",
+		"body": [
+			":root {",
+			"  --fonte-primaria: 'Inter', sans-serif;",
+			"  --principal: #E9F0EC;",
+			"  --bg: #121212;",
+			"  --bg-2: #303030;",
+			"  --destaque: #39B5E0;",
+			"}"
+		],
+		"description": "a2.1"
+	},
+	"a2.2": {
+		"prefix": "a2.2",
+		"body": [
+			"/* CSS reset */",
+			"*, *::before, *::after {",
+			"  box-sizing: border-box;",
+			"}",
+			"* {",
+			"  margin: 0;",
+			"}",
+			"html {",
+			"  scroll-behavior: smooth;",
+			"  height: 100%;",
+			"}",
+			"body {",
+			"  font-family: 'Inter', sans-serif;",
+			"  line-height: 1.5;",
+			"  -webkit-font-smoothing: antialiased;",
+			"  color: var(--principal);",
+			"  background: var(--bg);",
+			"  height: 100%;",
+			"}",
+			"img, picture, video, canvas, svg {",
+			"  display: block;",
+			"  max-width: 100%;",
+			"}",
+			"input, button, textarea, select {",
+			"  font: inherit;",
+			"}",
+			"p, h1, h2, h3, h4, h5, h6 {",
+			"  font-size: 1rem;",
+			"  overflow-wrap: break-word;",
+			"  font-weight: normal;",
+			"}",
+			"ul {",
+			"  list-style-type: none;",
+			"  padding: 0;",
+			"}",
+			"ol {",
+			"  padding: 0;",
+			"}",
+			"a {",
+			"  color: var(--principal);",
+			"  text-decoration: none;",
+			"}",
+			"button {",
+			"  color: var(--principal);",
+			"  border: none;",
+			"  cursor: pointer;",
+			"  padding: 0;",
+			"  background: none;",
+			"  touch-action: manipulation;",
+			"}",
+			"",
+			"/* Classes */",
+			".container {",
+			"  margin: auto;",
+			"  padding-left: 40px;",
+			"  padding-right: 40px;",
+			"}",
+			"",
+			"@media(max-width: 1000px) {",
+			"  .container {",
+			"    padding-left: 20px;",
+			"    padding-right: 20px;",
+			"  }",
+			"}"
+		],
+		"description": "a2.2"
+	},
+	"a2.3": {
+		"prefix": "a2.3",
+		"body": [
+			"import '$lib/global.css';",
+			"import '@fontsource/inter';"
+		],
+		"description": "a2.3"
+	},
+	"a3": {
+		"prefix": "a3",
+		"body": [
+			"<section>",
+			"  <div class=\"linha linha__1\">",
+			"    <input name=\"a\" type=\"number\" placeholder=\"a\" />",
+			"    <input name=\"b\" type=\"number\" placeholder=\"b\" />",
+			"  </div>",
+			"  <div class=\"linha linha__2\">",
+			"    <input name=\"c\" type=\"number\" placeholder=\"c\" />",
+			"    <input name=\"x\" type=\"number\" placeholder=\"x\" disabled />",
+			"  </div>",
+			"</section>",
+			"",
+			"<style>",
+			"  section {",
+			"    background-color: var(--bg-2);",
+			"    padding: 24px;",
+			"    display: flex;",
+			"    flex-direction: column;",
+			"    gap: 8px;",
+			"    margin-top: 8px;",
+			"    width: fit-content;",
+			"  }",
+			"  .linha {",
+			"    display: flex;",
+			"    gap: 40px;",
+			"    position: relative;",
+			"  }",
+			"  .linha::after {",
+			"    content: '';",
+			"    width: 40px;",
+			"    height: 8px;",
+			"    background-color: var(--bg);",
+			"    position: absolute;",
+			"    top: 26px;",
+			"    right: 120px;",
+			"  }",
+			"  input {",
+			"    width: 120px;",
+			"    height: 60px;",
+			"    padding: 16px;",
+			"    color: var(--principal);",
+			"    font-size: calc(18 / 16 * 1rem);",
+			"    background-color: var(--bg);",
+			"    border: none;",
+			"    text-align: end;",
+			"  }",
+			"  input::placeholder {",
+			"    color: var(--principal);",
+			"    text-transform: uppercase;",
+			"    opacity: .5;",
+			"  }",
+			"  input:focus-visible {",
+			"    outline: 1px solid var(--principal);",
+			"    outline-offset: -1px;",
+			"  }",
+			"  /* Remover setas type=\"number\" */",
+			"  /* https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp */",
+			"  input::-webkit-outer-spin-button,",
+			"  input::-webkit-inner-spin-button {",
+			"    -webkit-appearance: none;",
+			"    margin: 0;",
+			"  }",
+			"  input[type=number] {",
+			"    -moz-appearance: textfield;",
+			"    appearance: textfield;",
+			"  }",
+			"</style>"
+		],
+		"description": "a3"
+	},
+	"a4.1": {
+		"prefix": "a4.1",
+		"body": [
+			"import { writable } from \"svelte/store\";",
+			"",
+			"export const calculadora = writable({",
+			"  a: '',",
+			"  b: '',",
+			"  c: '',",
+			"  x: ''",
+			"});"
+		],
+		"description": "a4.1"
+	},
+	"a4.2": {
+		"prefix": "a4.2",
+		"body": [
+			"<script>",
+			"  import { calculadora } from '$$lib/stores';",
+			"</script>"
+		],
+		"description": "a4.2"
+	},
+	"a5.1": {
+		"prefix": "a5.1",
+		"body": [
+			"if (!$$calculadora.a || !$$calculadora.b || !$$calculadora.c) return;"
+		],
+		"description": "a5.1"
+	},
+	"a5.2": {
+		"prefix": "a5.2",
+		"body": [
+			"$$calculadora.x = ($$calculadora.b * $$calculadora.c) / $$calculadora.a;"
+		],
+		"description": "a5.2"
+	},
+	"a7": {
+		"prefix": "a7",
+		"body": [
+			"<script>",
+			"  import { calculadora } from '$lib/stores';",
+			"</script>",
+			"",
+			"<section>",
+			"  <p>",
+			"    {#if $calculadora.a}",
+			"    <span>{$calculadora.a}</span>",
+			"    {/if}",
+			" ",
+			"    {#if $calculadora.b}",
+			"    <span>está para {$calculadora.b}.</span>",
+			"    {/if}",
+			"  </p>",
+			"",
+			"  <p>",
+			"    {#if $calculadora.c}",
+			"    <span>Assim como {$calculadora.c}</span>",
+			"    {/if}",
+			" ",
+			"    {#if $calculadora.x}",
+			"    <span>está para {$calculadora.x}.</span>",
+			"    {/if}",
+			"  </p>",
+			"</section>",
+			"",
+			"<style>",
+			"  section {",
+			"    margin-top: 8px;",
+			"    margin-left: 24px;",
+			"  }",
+			"</style>"
+		],
+		"description": "a7"
+	},
+	"a8.1": {
+		"prefix": "a8.1",
+		"body": [
+			"<section>",
+			"  <ul class=\"resultados\">",
+			"    <li>5 está para 7, assim como 2 está para 2.8</li>",
+			"    <li>20 está para 100, assim como 8 está para 40</li>",
+			"  </ul>",
+			"</section>",
+			"",
+			"<style>",
+			"  section {",
+			"    display: grid;",
+			"    max-width: 940px;",
+			"    margin-top: 32px;",
+			"  }",
+			"  .resultados {",
+			"    border: 1px solid var(--bg-2);",
+			"    max-height: 402px;",
+			"    overflow-y: auto;",
+			"  }",
+			"  li {",
+			"    font-size: calc(14 / 16 * 1rem);",
+			"    height: 40px;",
+			"    background-color: var(--bg);",
+			"    display: flex;",
+			"    align-items: center;",
+			"    padding: 16px;",
+			"    white-space: nowrap;",
+			"  }",
+			"  li:first-child {",
+			"    margin-top: -1px;",
+			"  }",
+			"  li + li {",
+			"    border-top: 1px solid var(--bg-2);",
+			"  }",
+			"</style>"
+		],
+		"description": "a8.1"
+	},
+	"a8.2": {
+		"prefix": "a8.2",
+		"body": [
+			"// estruturar resultado",
+			"let resultado = `${$$calculadora.a} está para ${$$calculadora.b}, assim como ${$$calculadora.c} está para ${$$calculadora.x}`;",
+			"",
+			"// adicionar resultado ao store",
+			"$$resultados = [...$$resultados, resultado];"
+		],
+		"description": "a8.2"
+	},
+	"a9": {
+		"prefix": "a9",
+		"body": [
+			"// travar calculadora até o reset",
+			"$$calculadora.travar = true;"
+		],
+		"description": "a9"
+	},
+	"a10.1": {
+		"prefix": "a10.1",
+		"body": [
+			"<script>",
+			"  import { ClipboardCopy, RotateCcw  } from 'lucide-svelte';",
+			"</script>  ",
+			"",
+			"<section class=\"btns\">",
+			"  <button><ClipboardCopy/></button>",
+			"  <button><RotateCcw/></button>",
+			"</section>",
+			"",
+			"<style>",
+			"  .btns {",
+			"    margin-top: 8px;",
+			"    display: flex;",
+			"    flex-direction: column;",
+			"    gap: 8px;",
+			"  }",
+			"  button {",
+			"    width: 42px;",
+			"    height: 42px;",
+			"    background-color: var(--bg-2);",
+			"    display: flex;",
+			"    justify-content: center;",
+			"    align-items: center;",
+			"    border-radius: 50%;",
+			"  }",
+			"</style>"
+		],
+		"description": "a10.1"
+	},
+	"a10.2": {
+		"prefix": "a10.2",
+		"body": [
+			"<button>",
+			"  <div class=\"icone\">",
+			"    <Trash size=\"16\" />",
+			"  </div>",
+			"  <span>Deletar resultados</span>",
+			"</button>"
+		],
+		"description": "a10.2"
+	},
+	"a10.3": {
+		"prefix": "a10.3",
+		"body": [
+			"button {",
+			"  display: flex;",
+			"  align-items: center;",
+			"  gap: 4px;",
+			"  margin-bottom: 8px;",
+			"  justify-self: end;",
+			"}",
+			".icone {",
+			"  height: 24px;",
+			"  width: 24px;",
+			"  background-color: var(--bg-2);",
+			"  border-radius: 50%;",
+			"  display: flex;",
+			"  justify-content: center;",
+			"  align-items: center;",
+			"}"
+		],
+		"description": "a10.3"
+	},
+	"a11.1": {
+		"prefix": "a11.1",
+		"body": [
+			"import { calculadora } from '$$lib/stores';",
+			"function resetar() {",
+			"  $$calculadora.a = '';",
+			"  $$calculadora.b = '';",
+			"  $$calculadora.c = '';",
+			"  $$calculadora.x = '';",
+			"",
+			"  // destravar calculadora",
+			"  $$calculadora.travar = false;",
+			"}",
+			""
+		],
+		"description": "a11.1"
+	},
+	"a11.2": {
+		"prefix": "a11.2",
+		"body": [
+			"on:click={resetar} on:keypress={resetar}"
+		],
+		"description": "a11.2"
+	},
+	"a13.1": {
+		"prefix": "a13.1",
+		"body": [
+			"function deletarResultados() {",
+			"  $$resultados = [];",
+			"}"
+		],
+		"description": "a13.1"
+	},
+	"a13.2": {
+		"prefix": "a13.2",
+		"body": [
+			"on:click={deletarResultados} on:keypress={deletarResultados}"
+		],
+		"description": "a13.2"
+	},
+	"a14": {
+		"prefix": "a14",
+		"body": [
+			"import { tooltip } from 'svooltip';",
+			"import 'svooltip/styles.css';"
+		],
+		"description": "a14"
+	},
+	"a15.1": {
+		"prefix": "a15.1",
+		"body": [
+			"// enviar para o localStorage",
+			"localStorage.setItem('resultados', JSON.stringify($$resultados));"
+		],
+		"description": "a15.1"
+	},
+	"a15.2": {
+		"prefix": "a15.2",
+		"body": [
+			"import { onMount } from 'svelte';",
+			"import { resultados } from '$$lib/stores';",
+			"",
+			"onMount(() => {",
+			"  $$resultados = JSON.parse(localStorage.getItem('resultados')) || [];",
+			"})",
+			""
+		],
+		"description": "a15.2"
+	},
+	"a15.3": {
+		"prefix": "a15.3",
+		"body": [
+			"// remover resultados do localStorage",
+			"localStorage.removeItem('resultados');"
+		],
+		"description": "a15.3"
+	},
+	"a16": {
+		"prefix": "a16",
+		"body": [
+			".toLocaleString('pt-BR')"
+		],
+		"description": "a16"
+	},
+	"a17.1": {
+		"prefix": "a17.1",
+		"body": [
+			".concluido {",
+			"  border: 2px solid var(--destaque);",
+			"}"
+		],
+		"description": "a17.1"
+	},
+	"a17.2": {
+		"prefix": "a17.2",
+		"body": [
+			"// resetar foco",
+			"$$focarA = false;"
+		],
+		"description": "a17.2"
+	},
+	"a17.3": {
+		"prefix": "a17.3",
+		"body": [
+			"// focar no primeiro campo",
+			"$$focarA = true;"
+		],
+		"description": "a17.3"
+	},
+	"a18.1": {
+		"prefix": "a18.1",
+		"body": [
+			"<style>",
+			"  svg {",
+			"    position: absolute;",
+			"    z-index: -1;",
+			"    top: -320px;",
+			"    left: -320px;",
+			"    animation: animar 30s linear infinite;",
+			"  }",
+			"  @keyframes animar {",
+			"    100% {",
+			"      transform: rotate(1turn);",
+			"    }",
+			"  }",
+			"</style>"
+		],
+		"description": "a18.1"
+	},
+	"a18.2": {
+		"prefix": "a18.2",
+		"body": [
+			"h1 {",
+			"  font-size: calc(24 / 16 * 1rem);",
+			"}"
+		],
+		"description": "a18.2"
+	},
+	"a19": {
+		"prefix": "a19",
+		"body": [
+			"<footer>",
+			"  <div class=\"container footer__container\">",
+			"    <p>© <a href=\"https://artneo.com.br\" rel=\"nofollow\">Artneo</a>, 2023</p>",
+			"  </div>",
+			"</footer>",
+			"",
+			"<style>",
+			"  footer {",
+			"    padding-bottom: 32px;",
+			"    /* position: relative;",
+			"    top: 53px; */",
+			"  }",
+			"  p {",
+			"    font-size: calc(14 / 16 * 1rem);",
+			"  }",
+			"  a:hover {",
+			"    text-decoration: underline;",
+			"    text-underline-offset: 2px;",
+			"  }",
+			"</style>"
+		],
+		"description": "a19"
+	},
+	"a20.1": {
+		"prefix": "a20.1",
+		"body": [
+			"@media(max-width: 700px) {",
+			"  section {",
+			"    margin-top: 32px;",
+			"  }",
+			"}"
+		],
+		"description": "a20.1"
+	},
+	"a20.2": {
+		"prefix": "a20.2",
+		"body": [
+			"<svelte:head>",
+			"  <title>Regra de 3 simples</title>",
+			"</svelte:head>"
+		],
+		"description": "a20.2"
+	},
+	"a20.3": {
+		"prefix": "a20.3",
+		"body": [
+			"<meta name=\"description\" content=\"App de regra de 3 simples deselvolvido em Svelte\" />"
+		],
+		"description": "a20.3"
+	}
+}
