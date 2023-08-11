@@ -1,6 +1,4 @@
-# Desafio Svelte #1: Regra de 3 simples
-
-## Links importantes  
+# Desafio Svelte #1: Regra de 3 simples  
 Demonstração: https://desafio1.artneo.com.br
 
 ## Recursos utilizados no projeto 
